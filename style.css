@@ -1,0 +1,228 @@
+@import "reset.css";
+
+:root {
+  --sm: 375px;
+  --lg: 800px;
+  --clr-prime-text-dark: hsl(238, 29%, 16%);
+  --clr-prime-text-light: hsl(14, 88%, 65%);
+  --clr-neut-text-violet: hsl(237, 12%, 33%);
+  --clr-neut-text-blue: hsl(240, 6%, 50%);
+  --break: 1px solid hsl(240, 5%, 91%);
+}
+
+html {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 75%;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(273, 75%, 66%),
+    hsl(240, 73%, 65%)
+  );
+  background-repeat: no-repeat;
+  background-position: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+.wrapper {
+  background-color: #fff;
+  background-image: url(./images/bg-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  width: 65%;
+  min-width: 30rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  padding: 2rem 2rem 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.top-section {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-photo-sm {
+  position: absolute;
+  top: -0.8rem;
+  left: 50%;
+  transform: translate(-55%, -50%);
+}
+
+.top-photo-shadow-sm {
+  position: absolute;
+  top: 4.5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box {
+  display: none;
+}
+
+.top-section-lg {
+  display: none;
+}
+
+h1 {
+  margin: 8rem 0 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-prime-text-dark);
+  text-align: center;
+}
+
+.questions {
+  font-size: 120%;
+}
+
+.question-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--break);
+  padding: 1.1rem 0 1.1rem 0;
+  color: var(--clr-neut-text-violet);
+  transition: all 0.5s ease .15s;
+}
+
+.question-top p {
+  cursor: pointer;
+}
+
+.question-top p:hover {
+  color: var(--clr-prime-text-light);
+  cursor: pointer;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transform: rotate(360deg);
+  transition: transform 0.2s linear;
+}
+
+.question-text {
+  color: var(--clr-neut-text-blue);
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.5s ease .15s;
+}
+
+.show-text .question-text {
+  border-bottom: var(--break);
+  opacity: 1;
+  height: 5rem;
+  padding: 1rem 0 3rem 0;
+}
+
+.show-text .question-top{
+  border: 1px solid transparent;
+}
+
+.show-text .btn {
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
+}
+
+.show-text .question-top p {
+  font-weight: 700;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 800px) {
+  .wrapper {
+    background-image: url(./images/bg-pattern-desktop.svg),
+      url(./images/illustration-woman-online-desktop.svg);
+    background-size: 50%;
+    background-position: -15% 50%, -15% 50%;
+    flex-direction: row;
+    padding-bottom: 4rem;
+  }
+
+  .wrapper h1 {
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-prime-text-dark);
+    text-align: left;
+  }
+  .top-section {
+    flex: 50%;
+    margin-left: 2rem;
+  }
+
+  .questions {
+    flex: 50%;
+  }
+
+  .top-section {
+    display: none;
+  }
+
+  .top-section-lg {
+    flex: 50%;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .top-photo-lg {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: -8rem;
+    z-index: 2;
+  }
+
+  .box {
+    display: block;
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 90%;
+  }
+
+  .box {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .wrapper {
+    flex-direction: row;
+    padding-bottom: 3rem;
+    background-size: 48%;
+  }
+}
